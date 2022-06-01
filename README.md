@@ -1,4 +1,4 @@
-# Lap 1 - Project : Journaling Website 
+# Lap 1 - Project : Journaling Website | Front-End
 
 > This community driven website allows coffee lovers across London to post and comment about the best beverage in a coders arsenal - Java.
 
@@ -7,14 +7,12 @@
 ### Installation
 
 * Clone or download the repo.
-* Open terminal and navigate to the `server` folder.
-* Run `npm install` to install dependencies.
 * Then navigate to the `client` folder.
 * Run `npm install` to install dependencies.
 
 ### Usage
 
-* Run `npm start` to launch server.
+* Launch `index.html` in Live Server for Dev
 * Run `npm test` to run test suite.
 
 ## Changelog
@@ -29,3 +27,7 @@
 
 ### Challenges
 
+----
+## Credits
+
+>Brewed with ❤️ by Abigail, Hanibal, Terry, and Vlada
