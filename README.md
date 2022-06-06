@@ -17,8 +17,32 @@
 
 ## Changelog
 
+### index.html
+- Implemented Character Limit UX.
+- Implemented react widget.
+- Implemented react display template and footer.
+- Added react and comment count divs.
+- Added GIF and Emoji buttons to index.html.
+- Added logo alt tags and credits.
+- Constructed basic design of HTML and CSS colour scheme for frontend.
 
-## Bugs
+
+### style.css
+- Implemented Character Limit UX.
+- Implemented react widget.
+- Implemented react display template and footer.
+- Added react and comment count divs.
+- Added GIF and Emoji buttons to index.html.
+- Added logo alt tags and credits.
+- Constructed basic design of HTML and CSS colour scheme for frontend.
+
+### app.js
+- Implemented react widget.
+
+### index.js
+- Implemented Character Limit UX.
+
+### Bugs
 
 
 ## Wins & Challenges

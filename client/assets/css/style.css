@@ -1,9 +1,17 @@
-body {
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
+
+body{
     background-color: #FFF5EE;
 }
 
-header {
+header{
     background-color: #7D4A2C;
+    color: white;
+}
+
+footer{
+    background-color: #7D4A2C;
+    color: white;
 }
 
 #logo{
@@ -11,4 +19,58 @@ header {
     max-width: 128px;
     margin-right: auto;
     margin-left: auto;
+}
+
+#btn-post{
+    float: right;
+}
+
+#txt-message{
+    display: block;
+    width: 100%;
+    min-height: 230px;
+    resize: none;
+    padding: 20px;
+    color: #202020;
+    border: 2px solid #3ba51f;
+    border-radius: 5px;
+    outline: none;
+}
+
+#char-count{
+    width: 100%;
+    text-align: right;
+    margin-top: -30px;
+    padding-right: 10px;
+    color: #737373;
+}
+.reacts{
+    column-gap: 1em;
+    float: right;
+    background-color: #FFF5EE;
+    padding: 0.5em;
+}
+
+.react-like::before {
+    content: '👍';
+}
+
+.react-heart::before {
+    content: '❤️';
+}
+
+.react-java::before {
+    content: '☕';
+}
+
+.btn-reactLike::before {
+    content: '👍';
+}
+
+.btn-reactHeart::before {
+    content: '❤️';
+}
+
+.btn-reactJava::before {
+    content: '☕';
 }
