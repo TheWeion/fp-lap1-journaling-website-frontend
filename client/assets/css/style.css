@@ -21,8 +21,8 @@ footer {
     margin-left: auto;
 }
 
-#btn-post{
-    float: right
+#btn-post {
+    float: right;
 }
 
 .reacts {
@@ -32,14 +32,26 @@ footer {
     padding: 0.5em;
 }
 
-.reacts .react-like::before {
+.react-like::before {
     content: '👍';
 }
 
-.reacts .react-heart::before {
-    content: '❤️'
+.react-heart::before {
+    content: '❤️';
 }
 
-.reacts .react-java::before {
-    content: '☕'
+.react-java::before {
+    content: '☕';
+}
+
+.btn-reactLike::before {
+    content: '👍';
+}
+
+.btn-reactHeart::before {
+    content: '❤️';
+}
+
+.btn-reactJava::before {
+    content: '☕';
 }
