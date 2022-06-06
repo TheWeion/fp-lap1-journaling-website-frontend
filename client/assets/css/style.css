@@ -6,9 +6,63 @@ header {
     background-color: #7D4A2C;
 }
 
+footer {
+    background-color: #7D4A2C;
+    color: white;
+}
+
 #logo{
     display: block;
     max-width: 128px;
     margin-right: auto;
     margin-left: auto;
+}
+
+
+#post-list {
+    margin: 0;
+    width: 700px;
+}
+
+.timestamp {
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+#backbtn {
+    margin-left: 280px;
+    margin-top: 30px;
+}
+
+#btnstyle {
+ background-color:#7D4A2C !important;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color:#7D4A2C !important;
+    color: white !important;
+}
+
+
+.post-interact {
+    text-align: center;
+}
+
+.reacts {
+    column-gap: 1em;
+    float: right;
+    background-color: #FFF5EE;
+    padding: 0.5em;
+}
+
+.reacts .react-like::before {
+    content: '👍';
+}
+
+.reacts .react-heart::before {
+    content: '❤️'
+}
+
+.reacts .react-java::before {
+    content: '☕'
 }
