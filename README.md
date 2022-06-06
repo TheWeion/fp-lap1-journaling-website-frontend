@@ -29,7 +29,7 @@
 
 ### status.html
 - Merged and conformed CSS, and JS with rest of site.
-- Added Reactions
+- Added Reactions.
 - Implemented post page layout and theme.
 
 ### style.css
