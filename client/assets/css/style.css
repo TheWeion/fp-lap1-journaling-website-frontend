@@ -6,6 +6,7 @@ body {
 
 header {
     background-color: #7D4A2C;
+    color: white;
 }
 
 #logo {
@@ -17,4 +18,9 @@ header {
 
 #btn-post{
     float: right
+}
+
+.reacts {
+    float: right;
+    background-color: #FFF5EE;
 }

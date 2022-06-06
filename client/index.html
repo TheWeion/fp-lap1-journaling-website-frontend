@@ -31,7 +31,7 @@
         <title>TITLE - Home</title>
     </head>
     <body>
-        <header>
+        <header class="">
             <!-- Logo designed by Hannu Aaltonen at PNGITEM - (https://www.pngitem.com/middle/TmohbJ_kawaii-coffee-cup-happy-ftestickers-coffee-cartoon-hd/)-->
             <img class="img-fluid p-3" id="logo" src="./assets/img/logo.png" alt="Logo for website designed by Hannu Aaltonen at PNGITEM">
             <p class="text-center p-2" id="header-title">WEBSITE NAME HERE</p>
@@ -44,20 +44,27 @@
                 <div id="msg-widget">
                     <button type="button" role="button" title="GIF" onclick="" class="btn bi-filetype-gif"></button>
                     <button type="button" role="button" title="Emoji" onclick="" class="btn bi-emoji-laughing"></button>
-                    <!-- TODO: Add Emoji and GIF select  -->
+                    <!-- TODO: Add Emoji and GIF select API  -->
                     <button id="btn-post" type="submit" class="btn btn-primary mx-5">Submit</button>
                 </div>
                 <br>
             </section>
             <div id="post-list" class="row row-cols-md-3 row-cols-sm-1 p-3 mx-auto">
+
                 <div class="col my-4">
                     <article class="card h-100 p-3">
                         <div class="card-body">
                             <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus hendrerit sem sit amet erat euismod euismod. Aenean nec nulla euismod, mollis ex eu, lobortis diam. Proin faucibus ultrices lobortis. Fusce auctor placerat congue. Aliquam tincidunt urna a nisl elementum ultricies. Donec placerat, ante non tempor lacinia, tortor nunc ultricies mauris, et maximus nibh felis et mi. Mauris placerat tristique ultricies. Sed feugiat eros nec sapien varius, eu pharetra dolor semper. Sed in molestie diam.</p>
+                            <div class="reacts rounded-3">
+                            </div>
                         </div>
                         <hr>
                         <div class="text-center">
-                            <button type="button" role="button" title="View Post" onclick="window.open('http://localhost:3000/status')" class="btn btn-outline-primary bi-chat-dots"></button>
+                            <button type="button" role="button" title="View Post" onclick="window.open('http://localhost:3000/status')" class="btn btn-outline-primary bi-chat-dots">
+                                <i class="comment-count">1337</i>
+                            </button>
+                            <!-- TODO: Add Reaction GIF API and log to JSON  -->
+                            <button type="button" role="button" title="React" onclick="" class="btn btn-outline-primary bi-emoji-heart-eyes"></button>
                         </div>
                     </article>
                 </div>
