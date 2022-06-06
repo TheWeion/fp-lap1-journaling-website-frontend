@@ -6,6 +6,11 @@ header {
     background-color: #7D4A2C;
 }
 
+footer {
+    background-color: #7D4A2C;
+    color: white;
+}
+
 #logo{
     display: block;
     max-width: 128px;
@@ -30,15 +35,34 @@ header {
 }
 
 #btnstyle {
- background-color:#a0522d !important;
+ background-color:#7D4A2C !important;
 }
 
 .btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
-    background-color:#a0522d !important;
+    background-color:#7D4A2C !important;
     color: white !important;
 }
 
 
 .post-interact {
     text-align: center;
+}
+
+.reacts {
+    column-gap: 1em;
+    float: right;
+    background-color: #FFF5EE;
+    padding: 0.5em;
+}
+
+.reacts .react-like::before {
+    content: '👍';
+}
+
+.reacts .react-heart::before {
+    content: '❤️'
+}
+
+.reacts .react-java::before {
+    content: '☕'
 }
