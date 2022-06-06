@@ -26,7 +26,18 @@ header {
 
 #backbtn {
     margin-left: 280px;
+    margin-top: 30px;
 }
+
+#btnstyle {
+ background-color:#a0522d !important;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color:#a0522d !important;
+    color: white !important;
+}
+
 
 .post-interact {
     text-align: center;
