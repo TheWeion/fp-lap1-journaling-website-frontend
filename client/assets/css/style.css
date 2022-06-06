@@ -21,11 +21,18 @@ footer{
     margin-left: auto;
 }
 
-#btn-post{
-    float: right;
+.post-nav{
+    background-color: #7D4A2C;
+    color: white;
+    font-size: 1.5em;
 }
 
-#txt-message{
+.timestamp {
+    letter-spacing: 2px;
+    font-size: 12px;
+}
+
+#txt-message, #txt-reply{
     display: block;
     width: 100%;
     min-height: 230px;
@@ -44,7 +51,12 @@ footer{
     padding-right: 10px;
     color: #737373;
 }
-.reacts{
+
+.post-interact {
+    text-align: center;
+}
+
+.reacts {
     column-gap: 1em;
     float: right;
     background-color: #FFF5EE;

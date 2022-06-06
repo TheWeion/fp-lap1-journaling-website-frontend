@@ -1,5 +1,101 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--
+    -- ─── ADD FUTUREPROOF FAVICONS ───────────────────────────────────────────────────
+    -->
+
+    <link href="./assets/img/favicon.png" rel="shortcut icon" type="image/png">
+    <link href="./assets/img/favicon.png" rel="apple-touch-icon" type="image/png">
+
+  <!-- ──────────────────────────────────────────────────────────────────────────────── -->
+
+
+  <!--
+    -- ─── INITIALISE BOOTSTRAP 5.2.0-BETA1 CSS ───────────────────────────────────────
+    -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+  <!-- ──────────────────────────────────────────────────────────────────────────────── -->
+
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script type="text/javascript" src="./assets/js/app.js"></script>
+  <script defer type="text/javascript" src="./assets/js/index.js"></script>
+    <title>TITLE - Post</title>
+  </head>
+
+  <body>
+    <header>
+      <!-- Logo designed by Hannu Aaltonen at PNGITEM - (https://www.pngitem.com/middle/TmohbJ_kawaii-coffee-cup-happy-ftestickers-coffee-cartoon-hd/)-->
+      <img class="img-fluid p-3" id="logo" src="./assets/img/logo.png" alt="Logo for website designed by Hannu Aaltonen at PNGITEM">
+      <p class="text-center p-2" id="header-title">WEBSITE NAME HERE</p>
+    </header>
+    <main class="container">
+        <div class="post-render col my-4">
+          <article class="card h-100 p-3">          
+            <div class="card-body">
+              <button class="btn-reacst btn btn-danger bi-arrow-left-circle" type="button" role="button" title="Go Back" onclick="window.location='http://localhost:3000/'"></button>
+              <hr>
+              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus hendrerit sem sit
+                amet erat euismod euismod. Aenean nec nulla euismod, mollis ex eu, lobortis diam. Proin faucibus ultrices
+                lobortis. Fusce auctor placerat congue. Aliquam tincidunt urna a nisl elementum ultricies. Donec placerat,
+                ante non tempor lacinia, tortor nunc ultricies mauris, et maximus nibh felis et mi. Mauris placerat
+                tristique ultricies. Sed feugiat eros nec sapien varius, eu pharetra dolor semper. Sed in molestie diam.
+              </p>
+              <p class="timestamp">11:45AM . Jun 6, 2022</p>
+              <div class="reacts rounded-3 d-flex justify-content-between">
+                <div class="react-like">10</div>
+                <div class="react-heart">10</div>
+                <div class="react-java">10</div>
+              </div>
+              <button class="btn-react btn btn-outline-primary bi-emoji-heart-eyes" type="button" role="button" title="React" onclick=""></button>
+            </div>
+            <hr>
+            <div class="comments">
+              <!-- TODO: Insert Comments Here.-->
+            </div>
+            <hr>
+            <div class="container">
+              <form id="frm-compose-reply">
+                <label for="txt-reply" class="form-label">Reply</label>
+                <textarea class="form-control" name="txt-reply" id="txt-reply" rows="3"></textarea>
+                <p id="char-count"></p>
+                <hr>
+                <div id="msg-widget">
+                    <button type="button" role="button" title="GIF" onclick="" class="btn btn-outline-primary bi-filetype-gif"></button>
+                    <button type="button" role="button" title="Emoji" onclick="" class="btn btn-outline-primary bi-emoji-laughing"></button>
+                    <!-- TODO: Add Emoji and GIF select API  -->
+                    <button id="btn-post" type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <br>
+            </form>
+            </div>
+            <br>
+          </article>
+        </div>
+      </div>
+    </main>
+    <footer class="text-center p-3">Brewed with ❤️ by Abigail, Hanibal, Terry, and Vlada</footer>
+
+  <!--
+    -- ─── LOAD BOOTSTRAP 5.2.0-BETA1 JS LIBARIES ─────────────────────────────────────
+    -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+
+  <!-- ──────────────────────────────────────────────────────────────────────────────── -->
+
+  </body>
+=======
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
