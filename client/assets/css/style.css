@@ -24,6 +24,10 @@ header {
     font-size: 12px;
 }
 
+#backbtn {
+    margin-left: 280px;
+}
+
 .post-interact {
     text-align: center;
 }
