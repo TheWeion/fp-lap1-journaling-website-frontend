@@ -9,6 +9,11 @@ header {
     color: white;
 }
 
+footer {
+    background-color: #7D4A2C;
+    color: white;
+}
+
 #logo {
     display: block;
     max-width: 128px;
@@ -21,6 +26,20 @@ header {
 }
 
 .reacts {
+    column-gap: 1em;
     float: right;
     background-color: #FFF5EE;
+    padding: 0.5em;
+}
+
+.reacts .react-like::before {
+    content: '👍';
+}
+
+.reacts .react-heart::before {
+    content: '❤️'
+}
+
+.reacts .react-java::before {
+    content: '☕'
 }
