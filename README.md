@@ -50,7 +50,6 @@
 - Merged and conformed CSS, and JS with rest of site.
 - Implemented Character Limit UX.
 
-
 ### Bugs
 
 
