@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
+
 body {
     background-color: #FFF5EE;
 }
@@ -6,9 +8,13 @@ header {
     background-color: #7D4A2C;
 }
 
-#logo{
+#logo {
     display: block;
     max-width: 128px;
     margin-right: auto;
     margin-left: auto;
+}
+
+#btn-post{
+    float: right
 }
