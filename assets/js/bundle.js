@@ -45,9 +45,9 @@ function appendMessages(e) {
     htmlCode += `
             <div class="col my-4">
                 <article class="card h-100 p-3">
+                    <img src="${msgObj.gif}" class="card-img-top">
                     <div class="card-body">
                         <p class="card-text">${msgObj.post}</p>
-                        <img src="${msgObj.gif}" class="img-responsive">
                         <div class="reacts rounded-3 d-flex justify-content-between">
                             <div class="react-like"></div>
                             <div class="react-heart"></div>
