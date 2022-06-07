@@ -27,12 +27,12 @@ footer{
     font-size: 1.5em;
 }
 
-.timestamp {
+.timestamp{
     letter-spacing: 2px;
     font-size: 12px;
 }
 
-#txt-message, #txt-reply{
+#txt-message{
     display: block;
     width: 100%;
     min-height: 230px;
@@ -52,37 +52,40 @@ footer{
     color: #737373;
 }
 
-.post-interact {
+#btn-post{
+    float: right;
+}
+.post-interact{
     text-align: center;
 }
 
-.reacts {
+.reacts{
     column-gap: 1em;
     float: right;
     background-color: #FFF5EE;
     padding: 0.5em;
 }
 
-.react-like::before {
+.react-like::before{
     content: '👍';
 }
 
-.react-heart::before {
+.react-heart::before{
     content: '❤️';
 }
 
-.react-java::before {
+.react-java::before{
     content: '☕';
 }
 
-.btn-reactLike::before {
+.btn-reactLike::before{
     content: '👍';
 }
 
-.btn-reactHeart::before {
+.btn-reactHeart::before{
     content: '❤️';
 }
 
-.btn-reactJava::before {
+.btn-reactJava::before{
     content: '☕';
 }

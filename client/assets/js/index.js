@@ -1,5 +1,9 @@
+import { pipelineTopicExpression } from '@babel/types';
+import { createPicker } from 'picmo';
+
 function init(){
     charLimit();
+    emojiWidget();
 }
 
 function charLimit(){
@@ -23,6 +27,32 @@ function charLimit(){
             btnPost.classList.remove('disabled');
         }
     })
+}
+
+function emojiWidget() {
+    let msgInput = document.querySelector('#txt-message');
+    const btnEmoji =  document.querySelector('#btn-emoji');
+    const btnCloseWidget =  document.querySelector('#btn-close-widget');
+    // The picker must have a root element to insert itself into
+    const rootElement = document.querySelector('#emoji-picker');
+    const picker = createPicker({ rootElement });
+
+    rootElement.hidden = true;
+    btnCloseWidget.hidden = true;
+
+    btnEmoji.addEventListener('click', () => {
+        rootElement.hidden = false;
+        btnCloseWidget.hidden = false;
+        picker.addEventListener('emoji:select', (selection) => {
+            msgInput.value += selection.emoji;
+        });
+    })
+
+    btnCloseWidget.addEventListener('click', () => {
+        picker.destroy();
+        emojiWidget();
+    });
+
 }
 
 init();

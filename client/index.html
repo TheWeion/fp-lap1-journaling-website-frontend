@@ -27,8 +27,7 @@
           <link rel="stylesheet" href="./assets/css/style.css">
           <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-          <script type="text/javascript" src="./assets/js/app.js"></script>
-          <script defer type="text/javascript" src="./assets/js/index.js"></script>
+          <script defer type="text/javascript" src="./assets/js/bundle.js"></script>
         <title>TITLE - Home</title>
     </head>
     <body>
@@ -45,10 +44,13 @@
                 <hr>
                 <div id="msg-widget">
                     <button type="button" role="button" title="GIF" onclick="" class="btn btn-outline-primary bi-filetype-gif"></button>
-                    <button type="button" role="button" title="Emoji" onclick="" class="btn btn-outline-primary bi-emoji-laughing"></button>
-                    <!-- TODO: Add Emoji and GIF select API  -->
+                    <button id="btn-emoji" type="button" role="button" title="Emoji" onclick="" class="btn btn-outline-primary bi-emoji-laughing"></button>
+                    <!-- TODO: Add GIF select API  -->
                     <button id="btn-post" type="submit" class="btn btn-primary">Submit</button>
                 </div>
+                <br>
+                <button id="btn-close-widget" type="button" role="button" title="Close Emoji Picker" class="btn btn-danger bi-x-lg"></button>
+                <div id="emoji-picker"></div>
                 <br>
             </form>
             <div id="post-list" class="row row-cols-md-3 row-cols-sm-1 p-3 mx-auto">
