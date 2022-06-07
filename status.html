@@ -63,16 +63,19 @@
             <hr>
             <div class="container">
               <form id="frm-compose-reply">
-                <label for="txt-reply" class="form-label">Reply</label>
-                <textarea class="form-control" name="txt-reply" id="txt-reply" rows="3"></textarea>
+                <label for="txt-messege" class="form-label">Reply</label>
+                <textarea class="form-control" name="txt-messege" id="txt-messege" rows="3"></textarea>
                 <p id="char-count"></p>
                 <hr>
                 <div id="msg-widget">
-                    <button type="button" role="button" title="GIF" onclick="" class="btn btn-outline-primary bi-filetype-gif"></button>
-                    <button type="button" role="button" title="Emoji" onclick="" class="btn btn-outline-primary bi-emoji-laughing"></button>
-                    <!-- TODO: Add Emoji and GIF select API  -->
+                    <button type="button" role="button" title="GIF" class="btn btn-outline-primary bi-filetype-gif"></button>
+                    <button id="btn-emoji" type="button" role="button" title="Emoji" class="btn btn-outline-primary bi-emoji-laughing"></button>
+                    <!-- TODO: Add GIF select API  -->
                     <button id="btn-post" type="submit" class="btn btn-primary">Submit</button>
                 </div>
+                <br>
+                <button id="btn-close-widget" type="button" role="button" title="Close Emoji Picker" class="btn btn-danger bi-x-lg"></button>
+                <div id="emoji-picker"></div>
                 <br>
             </form>
             </div>

@@ -32,7 +32,7 @@ footer{
     font-size: 12px;
 }
 
-#txt-message, #txt-reply{
+#txt-message{
     display: block;
     width: 100%;
     min-height: 230px;
@@ -50,6 +50,10 @@ footer{
     margin-top: -30px;
     padding-right: 10px;
     color: #737373;
+}
+
+#btn-post{
+    float: right;
 }
 
 .post-interact {

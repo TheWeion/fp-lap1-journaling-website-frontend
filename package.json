@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "description": "> This community driven website allows coffee lovers across London to post and comment about the best beverage in a coders arsenal - Java.",
   "main": "index.js",
-  "directories": {
-    "test": "jest --watch --silent",
-    "coverage": "jest --coverage --silent",
-    "bundle": "browserify ./assets/js/index.js ./assets/js/app.js -p esmify > ./assets/js/bundle.js"
-  },
   "devDependencies": {
     "browser-resolve": "^2.0.0",
     "esmify": "^2.1.1",
@@ -15,7 +10,9 @@
     "jest-fetch-mock": "^3.0.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watch --silent",
+    "coverage": "jest --coverage --silent",
+    "bundle": "browserify ./assets/js/index.js ./assets/js/app.js -p esmify > ./assets/js/bundle.js"
   },
   "repository": {
     "type": "git",

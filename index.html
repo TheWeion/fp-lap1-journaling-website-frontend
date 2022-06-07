@@ -31,7 +31,7 @@
         <title>TITLE - Home</title>
     </head>
     <body>
-        <header class="">
+        <header>
             <!-- Logo designed by Hannu Aaltonen at PNGITEM - (https://www.pngitem.com/middle/TmohbJ_kawaii-coffee-cup-happy-ftestickers-coffee-cartoon-hd/)-->
             <img class="img-fluid p-3" id="logo" src="./assets/img/logo.png" alt="Logo for website designed by Hannu Aaltonen at PNGITEM">
             <p class="text-center p-2" id="header-title">WEBSITE NAME HERE</p>
@@ -44,10 +44,13 @@
                 <hr>
                 <div id="msg-widget">
                     <button type="button" role="button" title="GIF" onclick="" class="btn btn-outline-primary bi-filetype-gif"></button>
-                    <button type="button" role="button" title="Emoji" onclick="" class="btn btn-outline-primary bi-emoji-laughing"></button>
-                    <!-- TODO: Add Emoji and GIF select API  -->
+                    <button id="btn-emoji" type="button" role="button" title="Emoji" onclick="" class="btn btn-outline-primary bi-emoji-laughing"></button>
+                    <!-- TODO: Add GIF select API  -->
                     <button id="btn-post" type="submit" class="btn btn-primary">Submit</button>
                 </div>
+                <br>
+                <button id="btn-close-widget" type="button" role="button" title="Close Emoji Picker" class="btn btn-danger bi-x-lg"></button>
+                <div id="emoji-picker"></div>
                 <br>
             </form>
             <div id="post-list" class="row row-cols-md-3 row-cols-sm-1 p-3 mx-auto">
