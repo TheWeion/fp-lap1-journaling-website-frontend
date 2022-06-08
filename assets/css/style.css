@@ -56,6 +56,13 @@ footer{
     float: right;
 }
 
+.post-render{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 50%;
+
+}
+
 .post-interact {
     text-align: center;
 }

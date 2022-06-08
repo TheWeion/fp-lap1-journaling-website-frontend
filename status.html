@@ -38,7 +38,8 @@
     </header>
     <main class="container">
         <div class="post-render col my-4">
-          <article class="card h-100 p-3">          
+          <article class="card h-100 p-3">
+            <img class="card-img-top" src="https://media2.giphy.com/media/jpbnoe3UIa8TU8LM13/giphy.gif" alt="">
             <div class="card-body">
               <button class="btn-back btn btn-danger bi-arrow-left-circle" type="button" role="button" title="Go Back" onclick="window.location='https://ctrl-alt-elite-java-journal.netlify.app'"></button>
               <hr>
@@ -63,8 +64,8 @@
             <hr>
             <div class="container">
               <form id="frm-compose-reply">
-                <label for="txt-messege" class="form-label">Reply</label>
-                <textarea class="form-control" name="txt-messege" id="txt-messege" rows="3"></textarea>
+                <label for="txt-message" class="form-label">Reply</label>
+                <textarea class="form-control" name="txt-message" id="txt-message" rows="3"></textarea>
                 <p id="char-count"></p>
                 <hr>
                 <div id="msg-widget">
@@ -83,6 +84,19 @@
           </article>
         </div>
       </div>
+      <div id="gif-picker" class="bg-body">
+        <div class="header">
+          <h1>Gif Search</h1>
+        </div>
+        <form class="container p-5">
+          <label for="txt-gif-search" class="form-label">Search Gifs</label>
+          <input class="form-control" name="txt-gif-search" id="txt-gif-search"></input>
+          <br>
+          <button id="btn-search" type="submit" class="btn btn-primary">Search</button>
+          <br>
+          <hr>
+          <div class="gif-container container p-5"></div>
+        </form>
     </main>
     <footer class="text-center p-3">Brewed with ❤️ by Abigail, Hanibal, Terry, and Vlada</footer>
 

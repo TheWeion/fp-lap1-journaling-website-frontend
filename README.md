@@ -18,6 +18,7 @@
 ## Changelog
 
 ### index.html
+- Added Giphy functionality.
 - Implemented Emoji functionality via Picmo API (https://github.com/joeattardi/picmo/) and Browserify.
 - Merged and conformed CSS, and JS with rest of site.
 - Implemented Character Limit UX.
@@ -29,12 +30,14 @@
 - Constructed basic design of HTML and CSS colour scheme for frontend.
 
 ### status.html
+- Added Giphy functionality.
 - Implemented Emoji functionality via Picmo API (https://github.com/joeattardi/picmo/) and Browserify.
 - Merged and conformed CSS, and JS with rest of site.
 - Added Reactions.
 - Implemented post page layout and theme.
 
 ### style.css
+- Added Giphy functionality.
 - Implemented Emoji functionality via Picmo API (https://github.com/joeattardi/picmo/) and Browserify.
 - Merged and conformed CSS, and JS with rest of site.
 - Implemented Character Limit UX.
@@ -50,6 +53,7 @@
 - Implemented react widget.
 
 ### index.js
+- Added Giphy functionality.
 - Implemented Emoji functionality via Picmo API (https://github.com/joeattardi/picmo/) and Browserify.
 - Merged and conformed CSS, and JS with rest of site.
 - Implemented Character Limit UX.

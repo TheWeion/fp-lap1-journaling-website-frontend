@@ -26,6 +26,7 @@
   },
   "homepage": "https://github.com/theweion/fp-lap1-journaling-website-frontend#readme",
   "dependencies": {
+    "giphy-api-without-credentials": "^1.1.0",
     "picmo": "^5.1.2"
   }
 }

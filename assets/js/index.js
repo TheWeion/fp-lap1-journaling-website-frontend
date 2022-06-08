@@ -58,6 +58,59 @@ function emojiWidget() {
 
 }
 
+// Giphy functions
+
+let apiKey = "b9sS2zu1yWj2MBP18CydijPEgIiybHNl";
+
+// you will need to get your own API KEY
+// https://developers.giphy.com/dashboard/
+
+document.addEventListener("DOMContentLoaded", gifInit);
+function gifInit() {
+    document.getElementById("btn-search").addEventListener("click", e => {
+        e.preventDefault(); //to stop the page reload
+        let gifLimit = 4;
+        let url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&limit=${gifLimit}&q=`;
+        let str = document.getElementById("txt-gif-search").value.trim();
+        url = url.concat(str);
+        console.log(url);
+        fetch(url)
+            .then(response => response.json())
+            .then(content => {
+                //  data, pagination, meta
+
+                console.log(content.data);
+                console.log("META", content.meta);
+                for (let i = 0; i < gifLimit; i++) {
+                    let fig = document.createElement("figure");
+                    let img = document.createElement("img");
+                    let fc = document.createElement("figcaption");
+                    img.id = `gif-${str}-${content.data[i].id}`;
+                    img.classList.add('gif-img-list')
+                    img.src = content.data[i].images.original.url;
+                    img.alt = content.data[i].title;
+                    fc.textContent = content.data[i].title;
+                    fig.appendChild(img);
+                    let out = document.querySelector(".gif-container");
+                    out.insertAdjacentElement("afterbegin", fig);
+                    GifSelect(img.id);
+                }
+                document.querySelector("#txt-gif-search").value = "";
+            })
+            .catch(err => {
+              console.error(err);
+            });
+        });
+      }
+
+
+function GifSelect(imgId){
+    document.getElementById(imgId).addEventListener("click", e => {
+        let url = e.target.src.split('giphy.gif')[0]+'giphy.gif';
+        console.log(url);
+    });
+    return;
+}
 
 function getAllMessages(){
     fetch('https://ctrl-alt-elite-java-journal.herokuapp.com/status')
@@ -71,7 +124,7 @@ function appendMessages(e){
         htmlCode += `
             <div class="col my-4">
                 <article class="card h-100 p-3">
-                    <img src="${msgObj.gif}" class="card-img-top">
+                    <img class="card-img-top" src="${msgObj.gif}" alt="">
                     <div class="card-body">
                         <p class="card-text">${msgObj.post}</p>
                         <div class="reacts rounded-3 d-flex justify-content-between">
@@ -91,7 +144,7 @@ function appendMessages(e){
                 </article>
             </div>
         `;
-        // console.log(htmlCode)
+
         const postCards = document.querySelector('#post-list');
         postCards.innerHTML = htmlCode;
     });
@@ -114,4 +167,5 @@ function ReactConstructor() {
         sanitize    : false
     })
 }
+
 init();
