@@ -280,7 +280,7 @@ function gifInit() {
         fig.appendChild(img);
         let out = document.querySelector(".gif-container");
         out.insertAdjacentElement("afterbegin", fig);
-        GifSelect(img.id);
+        gifSelect(img.id);
       }
 
       document.querySelector("#txt-gif-search").value = "";
@@ -290,23 +290,24 @@ function gifInit() {
   });
 }
 
-function GifSelect(imgId) {
+let gifUrl = '';
+
+function gifSelect(imgId) {
   document.getElementById(imgId).addEventListener("click", e => {
     let url = e.target.src.split('giphy.gif')[0] + 'giphy.gif';
     console.log(url);
+    gifUrl = url;
   });
-  return url;
+  return;
 }
 
 const submitForm = document.querySelector('#frm-compose-post'); // submitForm.addEventListener('submit', submitPost);
 
 submitForm.addEventListener('submit', e => {
   e.preventDefault();
-  let gifURL = GifSelect();
-  console.log(gifURL);
   const postData = {
     post: e.target.message.value,
-    gif: e.target.message.value
+    gif: gifUrl
   };
   const options = {
     method: 'POST',
@@ -317,33 +318,6 @@ submitForm.addEventListener('submit', e => {
   };
   fetch('http://localhost:3000', options).then(r => r.json()).catch(console.warn);
 });
-
-function submitPost(e) {
-  e.preventDefault();
-  let gifURL = GifSelect(e);
-  console.log(gifURL);
-  const postData = {
-    post: e.target.message.value,
-    gif: gifURL
-  };
-  const options = {
-    method: 'POST',
-    body: JSON.stringify(postData),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  };
-  fetch('localhost:3000/status', options).then(r => r.json()).then(data => console.log(data)).catch(console.warn);
-}
-
-function appendPost(postData) {
-  const newLi = document.createElement('li');
-  newLi.textContent = `Name: ${catData.name} || Age: ${catData.age} || Class: ${catData.class} || Weapon: ${catData.Weapon}`;
-  const catsList = document.querySelector('ul');
-  catsList.append(newLi);
-}
-
-;
 
 function getAllMessages() {
   fetch('https://ctrl-alt-elite-java-journal.herokuapp.com/status').then(r => r.json()).then(appendMessages).catch(console.warn);
