@@ -44,6 +44,23 @@ footer{
     outline: none;
 }
 
+figure {
+
+}
+
+.gif-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    justify-content: flex-end;
+    height: 512px;
+    overflow: scroll;
+}
+.gif-img{
+    max-width: 256px;
+    margin: 5px;
+}
+
 #char-count{
     width: 100%;
     text-align: right;
