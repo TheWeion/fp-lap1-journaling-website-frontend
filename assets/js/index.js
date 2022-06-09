@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", gifInit);
 function gifInit() {
     document.getElementById("btn-search").addEventListener("click", e => {
         e.preventDefault(); //to stop the page reload
-        let gifLimit = 4;
+        let gifLimit = 12;
         let url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&limit=${gifLimit}&q=`;
         let str = document.getElementById("txt-gif-search").value.trim();
         url = url.concat(str);
@@ -86,7 +86,7 @@ function gifInit() {
                     let img = document.createElement("img");
                     let fc = document.createElement("figcaption");
                     img.id = `gif-${str}-${content.data[i].id}`;
-                    img.classList.add('gif-img-list')
+                    img.classList.add('gif-img');
                     img.src = content.data[i].images.original.url;
                     img.alt = content.data[i].title;
                     fc.textContent = content.data[i].title;
@@ -103,14 +103,67 @@ function gifInit() {
         });
       }
 
-
 function GifSelect(imgId){
     document.getElementById(imgId).addEventListener("click", e => {
         let url = e.target.src.split('giphy.gif')[0]+'giphy.gif';
         console.log(url);
     });
-    return;
+    return url;
 }
+
+const submitForm = document.querySelector('#frm-compose-post');
+// submitForm.addEventListener('submit', submitPost);
+
+submitForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let gifURL = GifSelect();
+    console.log(gifURL);
+
+    const postData = {
+        post: e.target.message.value,
+        gif: e.target.message.value,
+    }
+
+    const options = { 
+        method: 'POST',
+        body: JSON.stringify(postData),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
+    fetch('http://localhost:3000', options)
+        .then(r => r.json())
+        .catch(console.warn)
+})
+
+function submitPost(e){
+    e.preventDefault();
+    let gifURL = GifSelect(e);
+    console.log(gifURL);
+    const postData = {
+        post: e.target.message.value,
+        gif: gifURL,
+    }
+
+    const options = { 
+        method: 'POST',
+        body: JSON.stringify(postData),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
+    fetch('localhost:3000/status', options)
+        .then(r => r.json())
+        .then(data => console.log(data))
+        .catch(console.warn)
+}
+
+function appendPost(postData){
+    const newLi = document.createElement('li');
+    newLi.textContent = `Name: ${catData.name} || Age: ${catData.age} || Class: ${catData.class} || Weapon: ${catData.Weapon}`
+    const catsList = document.querySelector('ul');
+    catsList.append(newLi);
+};
 
 function getAllMessages(){
     fetch('https://ctrl-alt-elite-java-journal.herokuapp.com/status')
@@ -122,7 +175,7 @@ function getAllMessages(){
 function appendMessages(e){
     e.forEach(function(msgObj){
         htmlCode += `
-            <div class="col my-4">
+            <div class="col my-4" id="">
                 <article class="card h-100 p-3">
                     <img class="card-img-top" src="${msgObj.gif}" alt="">
                     <div class="card-body">

@@ -32,7 +32,7 @@ footer{
     font-size: 12px;
 }
 
-#txt-message{
+#message{
     display: block;
     width: 100%;
     min-height: 230px;
@@ -42,6 +42,23 @@ footer{
     border: 2px solid #3ba51f;
     border-radius: 5px;
     outline: none;
+}
+
+figure {
+
+}
+
+.gif-container{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px;
+    justify-content: flex-end;
+    height: 512px;
+    overflow: scroll;
+}
+.gif-img{
+    max-width: 256px;
+    margin: 5px;
 }
 
 #char-count{
