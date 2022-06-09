@@ -103,14 +103,22 @@ function gifInit() {
         });
       }
 
-
+let gifUrl = 'no gif selected';
 function GifSelect(imgId){
     document.getElementById(imgId).addEventListener("click", e => {
         let url = e.target.src.split('giphy.gif')[0]+'giphy.gif';
-        console.log(url);
+        console.log('gif url', url);
+        gifUrl = url;
     });
     return;
 }
+
+document.getElementById('frm-compose-post').addEventListener('submit', e => {
+    e.preventDefault();
+    console.log('hii');
+    console.log(e.target.message.value);
+    console.log(gifUrl);
+})
 
 function getAllMessages(){
     fetch('https://ctrl-alt-elite-java-journal.herokuapp.com/status')
@@ -167,5 +175,6 @@ function ReactConstructor() {
         sanitize    : false
     })
 }
+
 
 init();
