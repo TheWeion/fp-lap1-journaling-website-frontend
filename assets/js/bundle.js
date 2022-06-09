@@ -341,7 +341,7 @@ function appendMessages(e) {
                     </div>
                     <hr>
                     <div class="text-center">
-                        <button class="btn btn-outline-primary bi-chat-dots" type="button" role="button" title="View Post" onclick="window.open('status.html')">
+                        <button class="btn btn-outline-primary bi-chat-dots" type="button" role="button" title="View Post" onclick="window.open('status.html?id=${msgObj.id}')">
                             <i class="comment-count"></i>
                         </button>
                         <!-- TODO: Add Reaction GIF API and log to JSON  -->
