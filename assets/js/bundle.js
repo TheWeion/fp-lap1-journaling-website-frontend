@@ -320,7 +320,7 @@ submitForm.addEventListener('submit', e => {
 });
 
 function getAllMessages() {
-  fetch('https://ctrl-alt-elite-java-journal.herokuapp.com/status').then(r => r.json()).then(appendMessages).catch(console.warn);
+  fetch('http://localhost:3000/status').then(r => r.json()).then(appendMessages).catch(console.warn);
 }
 
 ;
