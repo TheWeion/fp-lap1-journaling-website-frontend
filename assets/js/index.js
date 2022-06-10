@@ -1,14 +1,35 @@
+//
+// ─── IMPORTS ────────────────────────────────────────────────────────────────────
+//
+
+    
 import { pipelineTopicExpression } from '@babel/types';
 import { createPicker } from 'picmo';
 
+//
+// ─── GLOBALS ────────────────────────────────────────────────────────────────────
+//
+
+    
 let htmlCode = ``;
 
+//
+// ─── INITIALISE JSON AND UX PROCESSING ──────────────────────────────────────────
+//
+
+    
 function init(){
-    getAllMessages()
+    getAllMessages();
     emojiWidget();
     gifWidget();
     charLimit();
 }
+
+//
+// ─── HELPER: CHARACTER LIMITER ──────────────────────────────────────────────────
+//
+
+// BUG: Defect in place since [commit: d6f35050a299373adcc601d31c21aee20b325b35]
 
 function charLimit(){
     const charLimitTip = document.getElementById('char-count');
@@ -33,23 +54,28 @@ function charLimit(){
     })
 }
 
-function gifWidget(){
-    let gifPicker = document.querySelector('#gif-picker');
-    const btnGif =  document.querySelector('#btn-emoji');
-    const btnCloseWidget =  document.querySelector('.btn-gif-close');
-    gifPicker.hidden = true;
-    btnCloseWidget.hidden = true;
+// function gifWidget(){
+//     let gifPicker = document.querySelector('#gif-picker');
+//     const btnGif =  document.querySelector('#btn-emoji');
+//     const btnCloseWidget =  document.querySelector('.btn-gif-close');
+//     gifPicker.hidden = true;
+//     btnCloseWidget.hidden = true;
 
-    btnGif.addEventListener('click', () => {
-        gifPicker.hidden = false;
-        btnCloseWidget.hidden = false;
-    });
+//     btnGif.addEventListener('click', () => {
+//         gifPicker.hidden = false;
+//         btnCloseWidget.hidden = false;
+//     });
 
-    btnCloseWidget.addEventListener('click', () => {
-        gifWidget();
-    });
-}
+//     btnCloseWidget.addEventListener('click', () => {
+//         gifWidget();
+//     });
+// }
 
+//
+// ─── HELPER: EMOJI WIDGET CONSTRUCTOR USING PICMO API ───────────────────────────────────────────
+//
+
+ 
 function emojiWidget() {
     let msgInput = document.querySelector('#message');
     const btnEmoji =  document.querySelector('#btn-emoji');
@@ -76,7 +102,9 @@ function emojiWidget() {
 
 }
 
-// Giphy functions
+//
+// ─── API: GIPHY ─────────────────────────────────────────────────────────────────
+//
 
 let apiKey = "b9sS2zu1yWj2MBP18CydijPEgIiybHNl";
 
@@ -121,8 +149,12 @@ function gifInit() {
         });
       }
 
-let gifUrl = ''
+//
+// ─── HELPER: GIF SELECTOR ───────────────────────────────────────────────────────
+//
 
+    
+let gifUrl = ''
 function gifSelect(imgId){
     document.getElementById(imgId).addEventListener("click", e => {
         let url = e.target.src.split('giphy.gif')[0]+'giphy.gif';
@@ -132,8 +164,11 @@ function gifSelect(imgId){
     return;
 }
 
+//
+// ─── EVENT: SUBMIT POST ─────────────────────────────────────────────────────────
+//
+
 const submitForm = document.querySelector('#frm-compose-post');
-// submitForm.addEventListener('submit', submitPost);
 
 submitForm.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -150,13 +185,13 @@ submitForm.addEventListener('submit', (e) => {
             "Content-Type": "application/json"
         }
     };
-    fetch('http://localhost:3000', options)
+    fetch('https://ctrl-alt-elite-java-journal.herokuapp.com/', options)
         .then(r => r.json())
         .catch(console.warn)
 })
 
 function getAllMessages(){
-    fetch('http://localhost:3000/status')
+    fetch('https://ctrl-alt-elite-java-journal.herokuapp.com/status')
         .then(r => r.json())
         .then(appendMessages)
         .catch(console.warn)
@@ -164,7 +199,6 @@ function getAllMessages(){
 
 function appendMessages(e){
     e.forEach(function(msgObj){
-        console.log(msgObj.reaction)
         htmlCode += `
             <div class="col my-4" id="">
                 <article class="card h-100 p-3">
@@ -196,32 +230,11 @@ function appendMessages(e){
     ReactConstructor();
 };
 
-function appendMessage(id) {
+//
+// ─── HELPER: REACTION POPOVER CONSTRUCTOR ───────────────────────────────────────
+//
 
-    // ! BUG: status.html output does not work.
-
-    fetch(`http://localhost:3000/status/${id}`)
-        .then(r => r.json())
-        .then((data) => {
-            let msg = data;
-            console.log(msg);
-            msg.map(function(msg) {
-                let img = document.querySelector('.card-img-top');
-                let body = document.querySelector('.card-text');
-                let timestamp = document.querySelector('.timestamp');
-                let reactLike = document.querySelector('.react-like');
-                let reactHeart = document.querySelector('.react-heart');
-                let reactJava = document.querySelector('.react-java');
-                img.src = msg.gif;
-                body.textContent = msg.post;
-                timestamp.textContent = msg.date
-                reactLike.textContent = msg.reaction.thumb
-                reactHeart.textContent = msg.reaction.heart
-                reactJava.textContent = msg.reaction.java
-            })
-        })
-}
-
+    
 function ReactConstructor() {
     $('.btn-react').popover({
         html        : true, 
