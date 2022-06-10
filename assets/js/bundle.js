@@ -206,7 +206,7 @@ function init() {
 function charLimit() {
   const charLimitTip = document.getElementById('char-count');
   const charLen = 280;
-  const input = document.getElementById('message');
+  const input = document.getElementById('msgBox');
   const btnPost = document.getElementById('btn-post');
   charLimitTip.textContent = `0 / ${charLen}`;
   input.addEventListener('input', function () {
@@ -223,22 +223,21 @@ function charLimit() {
       btnPost.classList.remove('disabled');
     }
   });
-}
+} // function gifWidget(){
+//     let gifPicker = document.querySelector('#gif-picker');
+//     const btnGif =  document.querySelector('#btn-emoji');
+//     const btnCloseWidget =  document.querySelector('.btn-gif-close');
+//     gifPicker.hidden = true;
+//     btnCloseWidget.hidden = true;
+//     btnGif.addEventListener('click', () => {
+//         gifPicker.hidden = false;
+//         btnCloseWidget.hidden = false;
+//     });
+//     btnCloseWidget.addEventListener('click', () => {
+//         gifWidget();
+//     });
+// }
 
-function gifWidget() {
-  let gifPicker = document.querySelector('#gif-picker');
-  const btnGif = document.querySelector('#btn-emoji');
-  const btnCloseWidget = document.querySelector('.btn-gif-close');
-  gifPicker.hidden = true;
-  btnCloseWidget.hidden = true;
-  btnGif.addEventListener('click', () => {
-    gifPicker.hidden = false;
-    btnCloseWidget.hidden = false;
-  });
-  btnCloseWidget.addEventListener('click', () => {
-    gifWidget();
-  });
-}
 
 function emojiWidget() {
   let msgInput = document.querySelector('#message');
@@ -343,7 +342,6 @@ function getAllMessages() {
 
 function appendMessages(e) {
   e.forEach(function (msgObj) {
-    console.log(msgObj.reaction);
     htmlCode += `
             <div class="col my-4" id="">
                 <article class="card h-100 p-3">
@@ -375,28 +373,6 @@ function appendMessages(e) {
 }
 
 ;
-
-function appendMessage(id) {
-  // ! BUG: status.html output does not work.
-  fetch(`http://localhost:3000/status/${id}`).then(r => r.json()).then(data => {
-    let msg = data;
-    console.log(msg);
-    msg.map(function (msg) {
-      let img = document.querySelector('.card-img-top');
-      let body = document.querySelector('.card-text');
-      let timestamp = document.querySelector('.timestamp');
-      let reactLike = document.querySelector('.react-like');
-      let reactHeart = document.querySelector('.react-heart');
-      let reactJava = document.querySelector('.react-java');
-      img.src = msg.gif;
-      body.textContent = msg.post;
-      timestamp.textContent = msg.date;
-      reactLike.textContent = msg.reaction.thumb;
-      reactHeart.textContent = msg.reaction.heart;
-      reactJava.textContent = msg.reaction.java;
-    });
-  });
-}
 
 function ReactConstructor() {
   $('.btn-react').popover({
