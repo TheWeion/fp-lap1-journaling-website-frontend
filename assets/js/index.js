@@ -6,13 +6,14 @@ let htmlCode = ``;
 function init(){
     getAllMessages()
     emojiWidget();
+    gifWidget();
     charLimit();
 }
 
 function charLimit(){
     const charLimitTip = document.getElementById('char-count');
     const charLen = 280;
-    const input = document.getElementById('txt-message');
+    const input = document.getElementById('message');
     const btnPost = document.getElementById('btn-post');
 
     charLimitTip.textContent = `0 / ${charLen}`;
@@ -32,8 +33,25 @@ function charLimit(){
     })
 }
 
+function gifWidget(){
+    let gifPicker = document.querySelector('#gif-picker');
+    const btnGif =  document.querySelector('#btn-emoji');
+    const btnCloseWidget =  document.querySelector('.btn-gif-close');
+    gifPicker.hidden = true;
+    btnCloseWidget.hidden = true;
+
+    btnGif.addEventListener('click', () => {
+        gifPicker.hidden = false;
+        btnCloseWidget.hidden = false;
+    });
+
+    btnCloseWidget.addEventListener('click', () => {
+        gifWidget();
+    });
+}
+
 function emojiWidget() {
-    let msgInput = document.querySelector('#txt-message');
+    let msgInput = document.querySelector('#message');
     const btnEmoji =  document.querySelector('#btn-emoji');
     const btnCloseWidget =  document.querySelector('#btn-close-widget');
     // The picker must have a root element to insert itself into
@@ -146,22 +164,24 @@ function getAllMessages(){
 
 function appendMessages(e){
     e.forEach(function(msgObj){
+        console.log(msgObj.reaction)
         htmlCode += `
             <div class="col my-4" id="">
                 <article class="card h-100 p-3">
                     <img class="card-img-top" src="${msgObj.gif}" alt="">
                     <div class="card-body">
                         <p class="card-text">${msgObj.post}</p>
+                        <p class="timestamp">${msgObj.date}</p>
                         <div class="reacts rounded-3 d-flex justify-content-between">
-                            <div class="react-like"></div>
-                            <div class="react-heart"></div>
-                            <div class="react-java"></div>
+                            <div class="react-like">${msgObj.reaction.thumb}</div>
+                            <div class="react-heart">${msgObj.reaction.heart}</div>
+                            <div class="react-java">${msgObj.reaction.java}</div>
                         </div>
                     </div>
                     <hr>
                     <div class="text-center">
                         <button class="btn btn-outline-primary bi-chat-dots" type="button" role="button" title="View Post" onclick="window.open('status.html?id=${msgObj.id}')">
-                            <i class="comment-count"></i>
+                            <i class="comment-count">${msgObj.comments.length}</i>
                         </button>
                         <!-- TODO: Add Reaction GIF API and log to JSON  -->
                         <button class="btn-react btn btn-outline-primary bi-emoji-heart-eyes" type="button" role="button" title="React" onclick=""></button>
@@ -175,6 +195,32 @@ function appendMessages(e){
     });
     ReactConstructor();
 };
+
+function appendMessage(id) {
+
+    // ! BUG: status.html output does not work.
+
+    fetch(`http://localhost:3000/status/${id}`)
+        .then(r => r.json())
+        .then((data) => {
+            let msg = data;
+            console.log(msg);
+            msg.map(function(msg) {
+                let img = document.querySelector('.card-img-top');
+                let body = document.querySelector('.card-text');
+                let timestamp = document.querySelector('.timestamp');
+                let reactLike = document.querySelector('.react-like');
+                let reactHeart = document.querySelector('.react-heart');
+                let reactJava = document.querySelector('.react-java');
+                img.src = msg.gif;
+                body.textContent = msg.post;
+                timestamp.textContent = msg.date
+                reactLike.textContent = msg.reaction.thumb
+                reactHeart.textContent = msg.reaction.heart
+                reactJava.textContent = msg.reaction.java
+            })
+        })
+}
 
 function ReactConstructor() {
     $('.btn-react').popover({
