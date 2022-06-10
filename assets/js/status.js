@@ -61,7 +61,7 @@ function appendMessage(e){
             <div class="container">
               <form id="frm-compose-reply">
                 <label for="message" class="form-label">Reply</label>
-                <textarea class="form-control" name="message" id="message" rows="3"></textarea>
+                <textarea class="form-control" name="message" id="message" rows="3" maxlength="280"></textarea>
                 <p id="char-count"></p>
                 <hr>
                 <div id="msg-widget">
