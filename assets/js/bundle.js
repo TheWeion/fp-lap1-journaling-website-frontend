@@ -194,19 +194,31 @@ var _types = require("@babel/types");
 
 var _picmo = require("picmo");
 
-let htmlCode = ``;
+//
+// ─── IMPORTS ────────────────────────────────────────────────────────────────────
+//
+//
+// ─── GLOBALS ────────────────────────────────────────────────────────────────────
+//
+let htmlCode = ``; //
+// ─── INITIALISE JSON AND UX PROCESSING ──────────────────────────────────────────
+//
 
 function init() {
   getAllMessages();
   emojiWidget();
   gifWidget();
   charLimit();
-}
+} //
+// ─── HELPER: CHARACTER LIMITER ──────────────────────────────────────────────────
+//
+// BUG: Defect in place since [commit: d6f35050a299373adcc601d31c21aee20b325b35]
+
 
 function charLimit() {
   const charLimitTip = document.getElementById('char-count');
   const charLen = 280;
-  const input = document.getElementById('msgBox');
+  const input = document.getElementById('message');
   const btnPost = document.getElementById('btn-post');
   charLimitTip.textContent = `0 / ${charLen}`;
   input.addEventListener('input', function () {
@@ -237,6 +249,9 @@ function charLimit() {
 //         gifWidget();
 //     });
 // }
+//
+// ─── HELPER: EMOJI WIDGET CONSTRUCTOR USING PICMO API ───────────────────────────────────────────
+//
 
 
 function emojiWidget() {
@@ -261,7 +276,9 @@ function emojiWidget() {
     picker.destroy();
     emojiWidget();
   });
-} // Giphy functions
+} //
+// ─── API: GIPHY ─────────────────────────────────────────────────────────────────
+//
 
 
 let apiKey = "b9sS2zu1yWj2MBP18CydijPEgIiybHNl"; // you will need to get your own API KEY
@@ -303,7 +320,10 @@ function gifInit() {
       console.error(err);
     });
   });
-}
+} //
+// ─── HELPER: GIF SELECTOR ───────────────────────────────────────────────────────
+//
+
 
 let gifUrl = '';
 
@@ -314,10 +334,12 @@ function gifSelect(imgId) {
     gifUrl = url;
   });
   return;
-}
+} //
+// ─── EVENT: SUBMIT POST ─────────────────────────────────────────────────────────
+//
 
-const submitForm = document.querySelector('#frm-compose-post'); // submitForm.addEventListener('submit', submitPost);
 
+const submitForm = document.querySelector('#frm-compose-post');
 submitForm.addEventListener('submit', e => {
   e.preventDefault();
   const postData = {
@@ -331,11 +353,11 @@ submitForm.addEventListener('submit', e => {
       "Content-Type": "application/json"
     }
   };
-  fetch('http://localhost:3000', options).then(r => r.json()).catch(console.warn);
+  fetch('https://ctrl-alt-elite-java-journal.herokuapp.com/', options).then(r => r.json()).catch(console.warn);
 });
 
 function getAllMessages() {
-  fetch('http://localhost:3000/status').then(r => r.json()).then(appendMessages).catch(console.warn);
+  fetch('https://ctrl-alt-elite-java-journal.herokuapp.com/status').then(r => r.json()).then(appendMessages).catch(console.warn);
 }
 
 ;
@@ -372,7 +394,9 @@ function appendMessages(e) {
   ReactConstructor();
 }
 
-;
+; //
+// ─── HELPER: REACTION POPOVER CONSTRUCTOR ───────────────────────────────────────
+//
 
 function ReactConstructor() {
   $('.btn-react').popover({
